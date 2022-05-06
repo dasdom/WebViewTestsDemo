@@ -9,6 +9,7 @@ import WebKit
 class WebHostViewControllerTests: XCTestCase {
 
   var sut: WebHostViewController!
+  // source: https://masilotti.com/set-wkwebview-title/
   var webViewExpectation: XCTestExpectation!
 
   override func setUpWithError() throws {
@@ -30,6 +31,7 @@ class WebHostViewControllerTests: XCTestCase {
     wait(for: [webViewExpectation], timeout: 1)
 
     var resultHTML: String?
+    // source: https://stackoverflow.com/a/57083024/498796
     webView.evaluateJavaScript("document.body.innerHTML") { value, error in
 
       guard let html = value as? String else {
